@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NOT A GAMBLING GAME</title>
+    </head>
+    <style>
+        .n {
+            display: flex;
+            justify-content: center;
+        }
+
+        .n h3 {
+            font-size: 100pt;
+            margin-left: 20px;
+            margin-right: 20px;
+            
+        }
+    </style>
+    <body>
+        <h1 id="title">RANDOM GAME</h1>
+        <div class="n">
+            <h3 id="a">8</h3>
+            <h3 id="b">8</h3>
+            <h3 id="c">8</h3>
+        </div>
+        <button onclick="slot()">RANDOM</button>
+        <h3 id="point">1000</h3>
+        
+<script>
+
+function randomNumber() {
+    const randomInt = Math.floor(Math.random() * 10)
+    return randomInt
+}
+
+function slot() {
+    const an = randomNumber()
+    const bn = randomNumber()
+    const cn = randomNumber()
+    
+
+    const a = document.getElementById('a')
+    a.textContent = an
+
+    const b = document.getElementById('b')
+    b.textContent = bn
+
+    const c = document.getElementById('c')
+    c.textContent = cn
+
+    const title = document.getElementById('title')
+    var point = document.getElementById('point').innerText
+    point = parseInt(point)
+    console.log(point)
+    if (an===bn && bn===cn) {
+        title.textContent = "JACK POT"
+        point = point + 100
+    } else {
+        title.textContent = "RANDOM GAME"
+        point = point - 50
+        console.log(point)
+    }
+
+    const pointele = document.getElementById('point')
+    pointele.textContent = point
+}
+
+
+</script>
+    </body>
+</html>
